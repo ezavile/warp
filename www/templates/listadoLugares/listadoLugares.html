@@ -1,0 +1,10 @@
+<section class="LugaresInteres-list View">
+	<ul>
+		<li ng-repeat="l in lugares">
+			<figure style="background-image: url({{l.img}})"></figure>
+			<p>{{l.name}}</p>
+			<i class="ion-chevron-right" ng-click="lugar(l);"></i>
+		</li>
+	</ul>
+	
+</section>
