@@ -1,0 +1,41 @@
+<section class="Lugar">
+	<ng-map 
+		class="Lugar-map"
+		zoom="16"
+		disable-default-u-i="true"
+		data-tap-disabled="true">
+			<marker 
+				position="{{bus.lat}}, {{bus.lng}}" 
+				animation="Animation.BOUNCE"
+				icon="{
+					url:'img/bus.png',
+					scaledSize:[30,30],
+					origin: [1,1],
+					anchor: [1,1]
+				}"
+				centered="true"></marker> 
+
+			<marker 
+				id='lugar' 
+				position="{{lugar.lat}}, {{lugar.lng}}" 
+				animation="Animation.DROP"
+				on-click="map.showInfoWindow('infoLugar')"></marker>
+			
+			<info-window id="infoLugar" visible-on-marker="lugar">
+				<div ng-non-bindable> 
+					{{lugar | json}}
+				</div>
+			</info-window>
+
+			<shape  
+			name="polyline" 
+			path="{{bus.wayPoints}}" 
+			stroke-color="{{bus.color}}" 
+			stroke-opacity="1.0" 
+			stroke-weight="5"></shape>
+	</ng-map>
+	<ul>
+		<li>info</li>
+	</ul>
+
+</section>
