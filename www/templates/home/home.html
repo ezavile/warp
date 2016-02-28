@@ -1,0 +1,19 @@
+<ng-map 
+	zoom="18"
+	disable-default-u-i="true"
+	data-tap-disabled="true">
+		<marker 
+			position="current" 
+			animation="Animation.BOUNCE" 
+			centered="true"></marker>
+		 <marker 
+			ng-repeat="bus in buses" 
+			position="{{bus.lat}},{{bus.lng}}"
+			icon="{
+				url:'img/bus.png',
+				scaledSize:[30,30],
+				origin: [1,1],
+				anchor: [1,1]
+			}"
+			on-click="route(bus)"></marker>
+</ng-map>
