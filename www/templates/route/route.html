@@ -1,0 +1,50 @@
+<ng-map 
+	zoom="18"
+	disable-default-u-i="true"
+	data-tap-disabled="true">
+		<marker 
+			position="{{bus.lat}}, {{bus.lng}}" 
+			animation="Animation.BOUNCE"
+			icon="{
+				url:'img/bus.png',
+				scaledSize:[30,30],
+				origin: [1,1],
+				anchor: [1,1]
+			}"
+			centered="true"></marker> 
+		<marker id="user"
+			position="current"
+			on-click="map.showInfoWindow('infoUser')"></marker>
+			<info-window id="infoUser" visible-on-marker="user">
+				<div ng-non-bindable> 
+					<b>Tiempo <br/>Estimado</b>
+					<p>24 min</p>
+				</div>
+			</info-window>
+		<marker 
+			id='{{lugar.id}}'
+			ng-repeat="lugar in lugares"
+			position="{{lugar.lat}}, {{lugar.lng}}" 
+			animation="Animation.DROP"
+			on-click="infoLugar(lugar);"></marker>
+
+			<info-window id="info">
+				<div ng-non-bindable="">
+					{{lugarSelected | json}}
+					<button ng-click="verLugar();">ver más</button>
+				</div>
+			</info-window>
+
+
+		<shape  
+		name="polyline" 
+		path="{{bus.wayPoints}}" 
+		stroke-color="{{bus.color}}" 
+		stroke-opacity="1.0" 
+		stroke-weight="5"></shape>
+		<div class="LugaresInteres">
+			<div class="LugaresInteres-btn" ng-click="listadoLugares();">
+				Lugares de interes
+			</div>
+		</div>
+</ng-map>
