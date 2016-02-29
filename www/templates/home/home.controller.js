@@ -16,6 +16,7 @@
 
 			var i = 0;
 			var j = 0;
+			var k = 0;
 			$interval(updatePosition, 3000);
 			function updatePosition(){ 
 
@@ -38,6 +39,17 @@
 					
 					if(j == $scope.buses[1].wayPoints.length){
 						j = 0;
+					}
+
+					if(typeof $scope.buses[2].wayPoints[k] != "undefined"){
+						var latlng = new google.maps.LatLng($scope.buses[2].wayPoints[k].lat, $scope.buses[2].wayPoints[k].lng);
+						$scope.map.markers[3].setPosition(latlng);
+						$scope.map.markers[3].setMap($scope.map);
+					}
+					k++;
+					
+					if(k == $scope.buses[2].wayPoints.length){
+						k = 0;
 					}
 			}
 
