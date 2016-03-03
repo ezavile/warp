@@ -1,7 +1,12 @@
+<ion-view view-title="{{bus.route}}">
+
+	<ion-pane>
+		<ion-content>
 <ng-map 
 	zoom="18"
 	disable-default-u-i="true"
-	data-tap-disabled="true">
+	data-tap-disabled="true"
+	style="height: 100%;">
 		<marker 
 			position="{{bus.lat}}, {{bus.lng}}" 
 			animation="Animation.BOUNCE"
@@ -12,9 +17,12 @@
 				anchor: [1,1]
 			}"
 			centered="true"></marker> 
+
 		<marker id="user"
 			position="current"
 			on-click="map.showInfoWindow('infoUser')"></marker>
+
+
 			<info-window id="infoUser" visible-on-marker="user">
 				<div ng-non-bindable> 
 					<b>Tiempo <br/>Estimado</b>
@@ -42,9 +50,12 @@
 		stroke-color="{{bus.color}}" 
 		stroke-opacity="1.0" 
 		stroke-weight="5"></shape>
-		<div class="LugaresInteres">
+		<div class="LugaresInteres bar-assertive">
 			<div class="LugaresInteres-btn" ng-click="listadoLugares();">
 				Lugares de interes
 			</div>
 		</div>
 </ng-map>
+</ion-content>
+</ion-pane>
+</ion-view>

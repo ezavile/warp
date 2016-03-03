@@ -35,12 +35,12 @@ angular.module('warp', ['ionic','ngMap'])
       controller: 'RouteCtrl'
     })
     .state('listadoLugares', {
-      url: '/listadoLugares/:id',
+      url: '/listadoLugares/:id/',
       templateUrl: 'templates/listadoLugares/listadoLugares.html',
       controller: 'ListadoLugaresCtrl'
     })
     .state('lugar', {
-      url: '/lugar/:id',
+      url: '/lugar/:id/:bus',
       templateUrl: 'templates/lugar/lugar.html',
       controller: 'LugarCtrl'
     })

@@ -2,8 +2,8 @@
   "name": "warp",
   "version": "1.0.0",
   "description": "warp: An Ionic project",
-  "scripts":{
-    "plugins":"cordova plugin add cordova-plugin-geolocation"
+  "scripts": {
+    "plugins": "cordova plugin add cordova-plugin-geolocation"
   },
   "dependencies": {
     "gulp": "^3.5.6",
@@ -25,5 +25,7 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }
